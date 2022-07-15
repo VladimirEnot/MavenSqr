@@ -7,7 +7,8 @@ public class SQRService {
            int sqr = i * i ;
            if (sqr >= min) {
                if (sqr <= max){
-                   int i1 = count++;
+                   count++;
+
 
                }
            }
