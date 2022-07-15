@@ -1,15 +1,17 @@
 package ru.netology.sqr;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.ParameterizedTest;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SqrServiceTest {
-    @Test
-    public void SquaresTest() {
+    @ParameterizedTest
+    @CsvFileSource(files = "src/main/resources/sqr.csv")
+    public void SquaresTest(int expected, int min, int max) {
         SQRService service = new SQRService() ;
 
-        int actual = service.calculate(200 ,300);
-        int expected = 3;
+        int actual;
+        actual = service.calculate(min, max);
 
         assertEquals(expected,actual);
     }
